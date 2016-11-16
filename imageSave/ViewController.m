@@ -190,11 +190,9 @@
         NSInteger index = [_imageData indexOfObject:imageName];
         [_imageData removeObjectAtIndex:index];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [_imageCollectionView performBatchUpdates:^{
-                [_imageCollectionView deleteItemsAtIndexPaths:@[deleteItemPath]];
-            } completion:nil];
-        });
+        [_imageCollectionView performBatchUpdates:^{
+            [_imageCollectionView deleteItemsAtIndexPaths:@[deleteItemPath]];
+        } completion:nil];
         
     } else {
         NSLog(@"Delete fail.");
